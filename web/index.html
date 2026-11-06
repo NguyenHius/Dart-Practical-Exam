@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Order | Order Management</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">O</span><span>ORDER<span class="brand-light">DESK</span></span></div>
+    <span class="top-note">Dart Practical Exam · SET01</span>
+  </header>
+
+  <main class="container">
+    <section class="heading">
+      <div>
+        <p class="eyebrow">ORDER MANAGEMENT</p>
+        <h1>My Orders</h1>
+        <p class="subtitle">Create, search and manage your order list.</p>
+      </div>
+      <div class="total-card"><span>Total orders</span><strong id="totalCount">0</strong></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div><h2>Add an order</h2><p>Enter the item information below.</p></div>
+      </div>
+      <form id="orderForm" class="form-grid">
+        <label>Item code<input id="item" placeholder="e.g. A1002" required></label>
+        <label>Item name<input id="itemName" placeholder="e.g. Iphone 17" required></label>
+        <label>Price<input id="price" type="number" min="0.01" step="0.01" placeholder="1200" required></label>
+        <label>Quantity<input id="quantity" type="number" min="1" step="1" placeholder="1" required></label>
+        <label>Currency<select id="currency"><option>USD</option><option>VND</option><option>EUR</option><option>GBP</option></select></label>
+        <div class="form-action"><button class="primary-button" type="submit">＋ Add to orders</button></div>
+      </form>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="panel list-panel">
+      <div class="list-heading">
+        <div><h2>Order list</h2><p>All saved orders appear here.</p></div>
+        <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search by item name..."><button id="clearSearch" type="button" class="clear-button">Clear</button></div>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>#</th><th>Item</th><th>Item name</th><th>Quantity</th><th>Price</th><th>Currency</th><th>Action</th></tr></thead>
+          <tbody id="ordersBody"><tr><td colspan="7" class="empty">Loading orders...</td></tr></tbody>
+        </table>
+      </div>
+      <div class="table-footer"><span id="resultCount">0 orders</span><span>Changes are saved to <code>order.json</code></span></div>
+    </section>
+  </main>
+
+  <footer>OrderDesk · Dart Introduction Practical · SET01</footer>
+  <script src="/app.js"></script>
+</body>
+</html>
